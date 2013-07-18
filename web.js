@@ -4,8 +4,14 @@ var app = express.createServer(express.logger());
 
 var infoToShow  = "testing";
 
+infoToShow = fs.readFileSync(index.html);
+
+
+
+
+
 app.get('/', function(request, response) {
-  response.send(infoToShow);
+  response.send(infoToShow.toString('utf-8'));
 });
 var port = process.env.PORT || 5000;
 app.listen(port, function() {
